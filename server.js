@@ -7,6 +7,7 @@ import authRoute from './routes/authRoute.js';
 import categoryRoute from './routes/categoryRoutes.js';
 import cors from 'cors';
 import path from 'path'; //comes from Node
+import {fileURLToPath} from 'url';
 dotenv.config();
 
 //rest object
@@ -14,6 +15,10 @@ const app = express();
 
 //databse config
 connectDB();
+
+//es_module fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //middlewares
 app.use(cors());
